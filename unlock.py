@@ -51,7 +51,7 @@ def bruteforceBootloader(increment):
         if any(failmsg in output for failmsg in failmsgs):
             #print("Code " + str(algoOEMcode) + " is wrong, trying next one...")
             pass
-        if 'success' not in output and 'reboot' not in output and failmsg not in output and unknownfail:
+        if 'success' not in output and 'reboot' not in output and not any(failmsg in output for failmsg in failmsgs) and unknownfail:
             # fail here to prevent continuing bruteforce on success or another error the script cant handle
             print("Could not parse output.")
             print("Please check the output above yourself.")
